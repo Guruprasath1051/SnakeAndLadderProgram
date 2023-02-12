@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace SnakeAndLadder1
 {
-    internal class Program
+    internal class Snake
     {
-        static void Main(string[] args)
+        public void Ladder()
         {
-            Console.WriteLine("Welcome to snake and ladder");
-            Console.ReadLine();
+            int position = 0;
+            Console.WriteLine("The position of player is : " + position);
+            
         }
     }
 }
