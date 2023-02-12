@@ -12,12 +12,15 @@ namespace SnakeAndLadder1
         public void Ladder()
         {
             int position1 = 0;
+            int dice = 0;
+            int roll = 0;
             Console.WriteLine("The position of player is : " + position1);
             Console.WriteLine(" ");
             do
             {
+                roll++;
                 Random random = new Random();
-                int dice = random.Next(1, 7);
+                dice = random.Next(1, 7);
                 Console.WriteLine("The number got by dice roll is : " + dice);
                 Random random2 = new Random();
                 int option = random2.Next(0, 3);
@@ -28,7 +31,7 @@ namespace SnakeAndLadder1
                         Console.WriteLine("The player climbed the ladder");
                         break;
                     case snake:
-                        position1 += dice;
+                        position1 -= dice;
                         if (position1 < 0)
                         {
                             Console.WriteLine("The player bit by snake");
@@ -43,10 +46,16 @@ namespace SnakeAndLadder1
                         Console.WriteLine($"NO play");
                         break;
                 }
+                if (position1 > 100)
+                {
+                    position1 = 0;
+                }
                 Console.WriteLine("The player position is :" + position1);
+                Console.WriteLine("The dice has been rolled " + roll + " times till now");
                 Console.WriteLine(" ");
 
-            } while (position1 < 100);           
+            } while (position1 < 100);
+            Console.WriteLine($"The dice has been rolled " + roll + " times to reach 100");
         }
     }
 }
